@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}ყველა კურსი - საგანმანათლებლო პლატფორმა{% endblock %}
+
+{% block content %}
+<section class="courses-page" style="margin-top: 100px; padding: 60px 0;">
+    <div class="container">
+        <h1 class="section-title">ყველა კურსი</h1>
+        <p class="section-subtitle">აირჩიეთ თქვენთვის საინტერესო კურსი და დაიწყეთ სწავლა დღესვე</p>
+
+        <div class="courses-filter" style="margin-bottom: 3rem; text-align: center;">
+            <button class="filter-btn active" data-filter="all">ყველა</button>
+            <button class="filter-btn" data-filter="programming">პროგრამირება</button>
+            <button class="filter-btn" data-filter="design">დიზაინი</button>
+            <button class="filter-btn" data-filter="business">ბიზნესი</button>
+            <button class="filter-btn" data-filter="marketing">მარკეტინგი</button>
+        </div>
+
+        <div class="courses-grid">
+            <!-- პროგრამირების კურსები -->
+            <div class="course-card" data-category="programming">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600" alt="Web Development">
+                    <span class="course-badge free">უფასო</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development საწყისები</h3>
+                    <p>ისწავლეთ HTML, CSS და JavaScript-ის საფუძვლები და შექმენით თქვენი პირველი ვებსაიტი.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">ნახე კურსი</a>
+                        <a href="#" class="btn-demo">დემო</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" data-category="programming">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Python">
+                    <span class="course-badge">$29</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon"><i class="fab fa-python"></i></div>
+                    <h3>Python პროგრამირება</h3>
+                    <p>დაეუფლეთ Python-ს და შექმენით რეალური აპლიკაციები.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">ნახე კურსი</a>
+                        <a href="#" class="btn-demo">დემო</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- დიზაინის კურსები -->
+            <div class="course-card" data-category="design">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600" alt="UI/UX">
+                    <span class="course-badge">$19</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon"><i class="fas fa-palette"></i></div>
+                    <h3>UI/UX დიზაინი</h3>
+                    <p>შექმენით მომხმარებელზე ორიენტირებული ინტერფეისები Figma-სა და Adobe XD-ში.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">ნახე კურსი</a>
+                        <a href="#" class="btn-demo">დემო</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" data-category="design">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600" alt="Graphic Design">
+                    <span class="course-badge">$25</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>გრაფიკული დიზაინი</h3>
+                    <p>ისწავლეთ Adobe Photoshop და Illustrator პროფესიონალურ დონეზე.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">ნახე კურსი</a>
+                        <a href="#" class="btn-demo">დემო</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ბიზნესის კურსები -->
+            <div class="course-card" data-category="business">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600" alt="Business">
+                    <span class="course-badge">$35</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>ბიზნესის მენეჯმენტი</h3>
+                    <p>ისწავლეთ როგორ წარმართოთ წარმატებული ბიზნესი.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">ნახე კურსი</a>
+                        <a href="#" class="btn-demo">დემო</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- მარკეტინგის კურსები -->
+            <div class="course-card" data-category="marketing">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Marketing">
+                    <span class="course-badge">$12</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>ციფრული მარკეტინგი</h3>
+                    <p>დაეუფლეთ SEO, SMM და კონტენტ მარკეტინგს.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">ნახე კურსი</a>
+                        <a href="#" class="btn-demo">დემო</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Filtering functionality
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const filter = this.dataset.filter;
+        const cards = document.querySelectorAll('.course-card');
+
+        cards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.5s ease';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+
+<style>
+.filter-btn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+</style>
+{% endblock %}

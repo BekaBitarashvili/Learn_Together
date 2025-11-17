@@ -1,0 +1,375 @@
+{% extends "base.html" %}
+
+{% block title %}მთავარი გვერდი - საგანმანათლებლო პლატფორმა{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Empower Your Business:<br>
+                Create and Sell with Framer!
+            </h1>
+            <p class="hero-description">
+                Revolutionize Your Business with Mellow Template for Framer: Unlock the Power to Sell
+                Your Digital Products Today and Reach a Wider Audience, All While Elevating Your Brand to
+                New Heights of Success!
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('courses') }}" class="btn btn-primary">
+                    Browse Courses <i class="fas fa-shopping-bag"></i>
+                </a>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary">About Us</a>
+            </div>
+            <div class="customer-reviews-link">
+                <div class="customer-avatars">
+                    <img src="https://i.pravatar.cc/50?img=1" alt="Customer">
+                    <img src="https://i.pravatar.cc/50?img=2" alt="Customer">
+                    <img src="https://i.pravatar.cc/50?img=3" alt="Customer">
+                </div>
+                <a href="#testimonials">Read Customer Reviews <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories">
+    <div class="container">
+        <h2 class="section-title">Browse by Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-file-code"></i>
+                </div>
+                <h3>Templates</h3>
+                <p>Choose from 100s of High Quality Templates for Framer.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Courses</h3>
+                <p>Get to Learning today with our Helpful Courses.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>Mockups</h3>
+                <p>Up your Mockup Game Today with our stunning Device Mockups.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-font"></i>
+                </div>
+                <h3>Fonts</h3>
+                <p>Choose the right font for your Website from our Collection.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Courses Section -->
+<section class="popular-courses">
+    <div class="container">
+        <h2 class="section-title">Most Popular Courses</h2>
+        <p class="section-subtitle">Browse through some of my Most Popular Products!</p>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600" alt="Course">
+                    <span class="course-badge free">Free</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Web Development Basics</h3>
+                    <p>Learn the fundamentals of web development with HTML, CSS, and JavaScript.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">View Course</a>
+                        <a href="#" class="btn-demo">View Demo</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Course">
+                    <span class="course-badge">$29</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Advanced Python Programming</h3>
+                    <p>Master advanced Python concepts and build real-world applications.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">View Course</a>
+                        <a href="#" class="btn-demo">View Demo</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600" alt="Course">
+                    <span class="course-badge">$19</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design Masterclass</h3>
+                    <p>Create stunning user interfaces with modern design principles.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">View Course</a>
+                        <a href="#" class="btn-demo">View Demo</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600" alt="Course">
+                    <span class="course-badge">$11</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <p>Learn SQL and database design for modern applications.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">View Course</a>
+                        <a href="#" class="btn-demo">View Demo</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Course">
+                    <span class="course-badge">$12</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Master the art of digital marketing and grow your business online.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">View Course</a>
+                        <a href="#" class="btn-demo">View Demo</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600" alt="Course">
+                    <span class="course-badge">$18</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Build cross-platform mobile applications with modern frameworks.</p>
+                    <div class="course-actions">
+                        <a href="#" class="btn-course">View Course</a>
+                        <a href="#" class="btn-demo">View Demo</a>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="browse-all">
+            <a href="{{ url_for('courses') }}" class="btn btn-outline">Browse All Courses <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Workspace" class="about-img-main">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400" alt="Learning" class="about-img-small">
+            </div>
+            <div class="about-text">
+                <div class="about-badge">
+                    <img src="https://i.pravatar.cc/60?img=8" alt="Icon">
+                </div>
+                <h2>Our Products are Thoughtfully Created with User Experience in Mind</h2>
+                <p>We are passionate about creating high-quality Framer templates that are visually appealing, highly functional, and easy to use. Our commitment to excellence ensures a seamless experience for our users.</p>
+                <a href="{{ url_for('about') }}" class="btn btn-dark">About Us <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2 class="section-title">What Customers are Saying!</h2>
+        <p class="section-subtitle">Check Out Customer Reviews who love Our Products.</p>
+        <div class="testimonials-slider">
+            <div class="testimonials-track">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I highly recommend this platform to anyone looking for a reliable and user-friendly website builder. The platform has exceeded my expectations in every way.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=11" alt="Elijah Brown">
+                        <div>
+                            <h4>Elijah Brown</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The e-commerce features have made it easy for me to manage my inventory and process orders. I can focus on growing my business instead of worrying about the technical details.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=5" alt="Ava Jackson">
+                        <div>
+                            <h4>Ava Jackson</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The responsive design ensures my website looks great on any device. My customers appreciate the seamless experience across all platforms.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=13" alt="Jameson Lee">
+                        <div>
+                            <h4>Jameson Lee</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As someone with no coding experience, I was hesitant to build my own website. But this drag-and-drop interface made it easy for me to create a professional-looking site.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=10" alt="Amelia Davis">
+                        <div>
+                            <h4>Amelia Davis</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The integration with social media platforms has been a game-changer for my marketing strategy. I'm able to easily share my content and engage with my audience.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=20" alt="Sophia Kim">
+                        <div>
+                            <h4>Sophia Kim</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I was impressed by the speed and performance of my website after switching to this platform. My pages load quickly and my bounce rate has decreased significantly.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=15" alt="Benjamin Singh">
+                        <div>
+                            <h4>Benjamin Singh</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for seamless loop -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I highly recommend this platform to anyone looking for a reliable and user-friendly website builder. The platform has exceeded my expectations in every way.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=11" alt="Elijah Brown">
+                        <div>
+                            <h4>Elijah Brown</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The e-commerce features have made it easy for me to manage my inventory and process orders. I can focus on growing my business instead of worrying about the technical details.</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/60?img=5" alt="Ava Jackson">
+                        <div>
+                            <h4>Ava Jackson</h4>
+                            <p>Owner of ABC Co.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

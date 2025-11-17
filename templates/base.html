@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}საგანმანათლებლო პლატფორმა{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('courses') }}">Browse Courses</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact & Support</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                    <li><a href="#feedback">მომხმარებელთა ფიდბექი</a></li>
+                </ul>
+                <a href="#join" class="btn-join">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                    </div>
+                    <p>საგანმანათლებლო პლატფორმა, რომელიც ამარტივებს ციფრული პროდუქტების გაყიდვას და მარკეტინგს.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your Email Here">
+                        <button class="btn-signup">Sign Up</button>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('courses') }}">Browse Courses</a></li>
+                        <li><a href="{{ url_for('about') }}">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#feedback">Wall of Love</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Mockups</a></li>
+                        <li><a href="{{ url_for('courses') }}">Courses</a></li>
+                        <li><a href="#">Fonts</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                        <li><a href="{{ url_for('faq') }}">FAQs</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright © 2025 - Made with <span class="heart">❤️</span> by ბექა ბიტარაშვილი</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

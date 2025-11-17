@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}დაგვიკავშირდით - კონტაქტი და მხარდაჭერა{% endblock %}
+
+{% block content %}
+<section class="contact-page" style="margin-top: 100px; padding: 80px 0;">
+    <div class="container">
+        <h1 class="section-title">დაგვიკავშირდით</h1>
+        <p class="section-subtitle">ჩვენ აქ ვართ დასახმარებლად. დაგვიკავშირდით ნებისმიერ კითხვასთან დაკავშირებით</p>
+
+        <div class="contact-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; align-items: start;">
+            <div class="contact-info">
+                <h2 style="color: var(--primary-color); font-size: 2rem; margin-bottom: 2rem;">საკონტაქტო ინფორმაცია</h2>
+
+                <div class="contact-item" style="display: flex; align-items: start; gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                    <div style="font-size: 2rem; color: var(--accent-color);">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">ელ-ფოსტა</h3>
+                        <p style="color: var(--text-color);">info@eduplatform.ge</p>
+                        <p style="color: var(--text-color);">support@eduplatform.ge</p>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="display: flex; align-items: start; gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                    <div style="font-size: 2rem; color: var(--accent-color);">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">ტელეფონი</h3>
+                        <p style="color: var(--text-color);">+995 555 123 456</p>
+                        <p style="color: var(--text-color);">+995 555 654 321</p>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="display: flex; align-items: start; gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                    <div style="font-size: 2rem; color: var(--accent-color);">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">მისამართი</h3>
+                        <p style="color: var(--text-color);">თბილისი, საქართველო</p>
+                        <p style="color: var(--text-color);">ვაჟა-ფშაველას გამზირი 25</p>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="display: flex; align-items: start; gap: 1.5rem; padding: 1.5rem; background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                    <div style="font-size: 2rem; color: var(--accent-color);">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">სამუშაო საათები</h3>
+                        <p style="color: var(--text-color);">ორშაბათი - პარასკევი: 9:00 - 18:00</p>
+                        <p style="color: var(--text-color);">შაბათი - კვირა: დახურულია</p>
+                    </div>
+                </div>
+
+                <div class="social-media" style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">სოციალური მედია</h3>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 50px; height: 50px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 50px; height: 50px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="width: 50px; height: 50px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="width: 50px; height: 50px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <div style="background-color: var(--card-bg); padding: 2.5rem; border-radius: 15px; border: 1px solid var(--border-color);">
+                    <h2 style="color: var(--primary-color); font-size: 2rem; margin-bottom: 1.5rem;">გამოგვიგზავნეთ შეტყობინება</h2>
+
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label style="color: var(--text-color); display: block; margin-bottom: 0.5rem; font-weight: 500;">სახელი და გვარი</label>
+                            <input type="text" name="name" required style="width: 100%; padding: 1rem; background-color: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: var(--text-color); display: block; margin-bottom: 0.5rem; font-weight: 500;">ელ-ფოსტა</label>
+                            <input type="email" name="email" required style="width: 100%; padding: 1rem; background-color: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: var(--text-color); display: block; margin-bottom: 0.5rem; font-weight: 500;">ტელეფონი</label>
+                            <input type="tel" name="phone" style="width: 100%; padding: 1rem; background-color: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-size: 1rem;">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: var(--text-color); display: block; margin-bottom: 0.5rem; font-weight: 500;">თემა</label>
+                            <select name="subject" required style="width: 100%; padding: 1rem; background-color: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-size: 1rem;">
+                                <option value="">აირჩიეთ თემა</option>
+                                <option value="course">კურსთან დაკავშირებით</option>
+                                <option value="technical">ტექნიკური მხარდაჭერა</option>
+                                <option value="billing">გადახდა/ანგარიში</option>
+                                <option value="other">სხვა</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color: var(--text-color); display: block; margin-bottom: 0.5rem; font-weight: 500;">შეტყობინება</label>
+                            <textarea name="message" required rows="5" style="width: 100%; padding: 1rem; background-color: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-size: 1rem; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; background-color: var(--primary-color); color: var(--secondary-color); border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                            გაგზავნა <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-item:hover {
+    transform: translateX(10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.2);
+}
+
+.social-media a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+
+<script>
+// Form submission handler
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        subject: this.subject.value,
+        message: this.message.value
+    };
+
+    // Here you would send the form data to your backend
+    console.log('Form submitted:', formData);
+
+    // Show success message
+    alert('გმადლობთ! თქვენი შეტყობინება წარმატებით გაიგზავნა. ჩვენ მალე დაგიკავშირდებით!');
+
+    // Reset form
+    this.reset();
+});
+
+// Form validation
+document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select').forEach(field => {
+    field.addEventListener('invalid', function() {
+        this.style.borderColor = '#ff4444';
+    });
+
+    field.addEventListener('input', function() {
+        if (this.validity.valid) {
+            this.style.borderColor = 'var(--border-color)';
+        }
+    });
+});
+</script>
+{% endblock %}
