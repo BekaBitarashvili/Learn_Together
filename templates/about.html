@@ -75,23 +75,98 @@
 
 <section style="padding: 80px 0; background-color: rgba(42, 42, 42, 0.3);">
     <div class="container">
-        <h2 class="section-title">სტატისტიკა</h2>
-        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center;">
-            <div class="stat-item">
-                <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--accent-color); margin-bottom: 0.5rem;">10,000+</div>
-                <p style="color: var(--text-color); font-size: 1.1rem;">აქტიური სტუდენტი</p>
+        <h2 class="section-title">ჩვენი გუნდი</h2>
+        <p class="section-subtitle">გაიცანით პროფესიონალები, რომლებიც ქმნიან საუკეთესო საგანმანათლებლო გამოცდილებას</p>
+
+        <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/beka.jpg') }}" alt="Founder" style="width: 400px">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>ბექა ბიტარაშვილი</h3>
+                    <p class="team-position">Founder</p>
+                    <p class="team-bio">10+ წლის გამოცდილება ედუქეიშენ ტექნოლოგიებში</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--accent-color); margin-bottom: 0.5rem;">500+</div>
-                <p style="color: var(--text-color); font-size: 1.1rem;">კურსი</p>
+
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/ika.jpg') }}" alt="Founder" style="width: 400px">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>ირაკლი დვალი</h3>
+                    <p class="team-position">Co-Founder & CEO</p>
+                    <p class="team-bio">სპეციალისტი AI და მანქანური სწავლების სფეროში</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--accent-color); margin-bottom: 0.5rem;">100+</div>
-                <p style="color: var(--text-color); font-size: 1.1rem;">ინსტრუქტორი</p>
+
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/zura.jpg') }}" alt="Founder" style="width: 400px; height: 400px">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>ზურა მიქაბერიძე</h3>
+                    <p class="team-position">Co-Founder & CTO</p>
+                    <p class="team-bio">კურიკულუმის შემქმნელი და განვითარების ხელმძღვანელი</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" style="font-size: 3rem; font-weight: 800; color: var(--accent-color); margin-bottom: 0.5rem;">95%</div>
-                <p style="color: var(--text-color); font-size: 1.1rem;">კმაყოფილების დონე</p>
+
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/rezo.jpg') }}" alt="Founder" style="width: 400px">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>რეზო ყიფშიძე</h3>
+                    <p class="team-position">Co-Founder</p>
+                    <p class="team-bio">ციფრული მარკეტინგის და ბრენდინგის ექსპერტი</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/avto.jpg') }}" alt="Founder" style="width: 400px; height: 400px">
+                    <div class="team-overlay">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>ავთო ტლაშიძე</h3>
+                    <p class="team-position">Co-Founder</p>
+                    <p class="team-bio">უზრუნველყოფს 24/7 მხარდაჭერას და სტუდენტების კმაყოფილებას</p>
+                </div>
             </div>
         </div>
     </div>
