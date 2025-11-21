@@ -12,6 +12,82 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Language Switcher
+let currentLang = 'ka'; // Default language
+
+function switchLanguage(lang) {
+    currentLang = lang;
+
+    // Update all language-specific elements
+    document.querySelectorAll('[data-ka][data-en]').forEach(element => {
+        if (lang === 'ka') {
+            element.textContent = element.getAttribute('data-ka');
+        } else {
+            element.textContent = element.getAttribute('data-en');
+        }
+    });
+
+    // Update active language button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Save language preference to session
+    sessionStorage.setItem('preferredLanguage', lang);
+}
+
+// Language button click handlers
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        switchLanguage(lang);
+    });
+});
+
+// Load saved language preference from session
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = sessionStorage.getItem('preferredLanguage') || 'ka';
+    switchLanguage(savedLang);
+});
+
+// Mobile menu toggle
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navActions = document.querySelector('.nav-actions');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        navActions.classList.toggle('active');
+
+        // Change icon
+        const icon = this.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar')) {
+        navMenu?.classList.remove('active');
+        navActions?.classList.remove('active');
+        const icon = mobileToggle?.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+});
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');

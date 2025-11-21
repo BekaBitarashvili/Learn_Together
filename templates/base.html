@@ -13,16 +13,28 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="{{ url_for('static', filename='images/bugs.jpg') }}" alt="Logo">
+                    <a href="{{ url_for('index') }}">
+                        <img src="{{ url_for('static', filename='images/bugs.jpg') }}" alt="Logo">
+                    </a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="{{ url_for('courses') }}">Browse Courses</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact & Support</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('faq') }}">FAQ</a></li>
-                    <li><a href="#feedback">მომხმარებელთა ფიდბექი</a></li>
+                    <li><a href="{{ url_for('courses') }}"><span data-ka="კურსები" data-en="Courses">კურსები</span></a></li>
+                    <li><a href="{{ url_for('contact') }}"><span data-ka="კონტაქტი & დახმარება" data-en="Contact & Support">კონტაქტი & დახმარება</span></a></li>
+                    <li><a href="{{ url_for('about') }}"><span data-ka="ჩვენს შესახებ" data-en="About">ჩვენს შესახებ</span></a></li>
+                    <li><a href="{{ url_for('faq') }}"><span data-ka="FAQ" data-en="FAQ">FAQ</span></a></li>
+                    <li><a href="#feedback"><span data-ka="უკუკავშირი" data-en="Feedback">უკუკავშირი</span></a></li>
                 </ul>
-                <a href="#join" class="btn-join">Join Us</a>
+                <div class="nav-actions">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="ka">ქარ</button>
+                        <button class="lang-btn" data-lang="en">ENG</button>
+                    </div>
+                    <a href="#login" class="btn-auth btn-login"><span data-ka="ავტორიზაცია" data-en="Login">ავტორიზაცია</span></a>
+                    <a href="#register" class="btn-auth btn-register"><span data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</span></a>
+                </div>
+                <button class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -36,13 +48,15 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="{{ url_for('static', filename='images/bugs.jpg') }}" alt="Logo">
+                        <a href="{{ url_for('index') }}">
+                            <img src="{{ url_for('static', filename='images/bugs.jpg') }}" alt="Logo">
+                        </a>
                     </div>
                     <p>საგანმანათლებლო პლატფორმა, რომელიც ამარტივებს ციფრული პროდუქტების გაყიდვას და მარკეტინგს.</p>
-                    <div class="newsletter">
-                        <input type="email" placeholder="Your Email Here">
-                        <button class="btn-signup">Sign Up</button>
-                    </div>
+<!--                    <div class="newsletter">-->
+<!--                        <input type="email" placeholder="Your Email Here">-->
+<!--                        <button class="btn-signup">Sign Up</button>-->
+<!--                    </div>-->
                 </div>
 
                 <div class="footer-section">
@@ -82,7 +96,7 @@
                     <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
