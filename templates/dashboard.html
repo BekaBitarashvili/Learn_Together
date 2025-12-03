@@ -1,0 +1,615 @@
+{% extends "base.html" %}
+
+{% block title %}<span data-ka="პირადი კაბინეტი" data-en="Dashboard">პირადი კაბინეტი</span> - საგანმანათლებლო პლატფორმა{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="container">
+        <div class="dashboard-header">
+            <div class="welcome-message">
+                <h1><span data-ka="მოგესალმებით" data-en="Welcome">მოგესალმებით</span>, {{ current_user.username }}! 👋</h1>
+                <p><span data-ka="კეთილი იყოს თქვენი დაბრუნება. მზად ხართ განაგრძოთ სწავლა?" data-en="Welcome back. Ready to continue learning?">კეთილი იყოს თქვენი დაბრუნება. მზად ხართ განაგრძოთ სწავლა?</span></p>
+            </div>
+            <div class="user-stats">
+                <div class="stat-box">
+                    <i class="fas fa-book-open"></i>
+                    <div>
+                        <span class="stat-number">12</span>
+                        <span class="stat-label"><span data-ka="ჩართული კურსები" data-en="Enrolled Courses">ჩართული კურსები</span></span>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <span class="stat-number">5</span>
+                        <span class="stat-label"><span data-ka="სერთიფიკატები" data-en="Certificates">სერთიფიკატები</span></span>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <span class="stat-number">48</span>
+                        <span class="stat-label"><span data-ka="სწავლის საათები" data-en="Learning Hours">სწავლის საათები</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="main-content">
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2><span data-ka="განაგრძეთ სწავლა" data-en="Continue Learning">განაგრძეთ სწავლა</span></h2>
+                        <a href="{{ url_for('courses') }}" class="view-all"><span data-ka="ყველას ნახვა" data-en="View All">ყველას ნახვა</span></a>
+                    </div>
+                    <div class="progress-courses">
+                        <div class="progress-course-card">
+                            <div class="course-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Course">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h3><span data-ka="ვებ შემუშავების საფუძვლები" data-en="Web Development Basics">ვებ შემუშავების საფუძვლები</span></h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <div class="progress-info">
+                                    <span>65% <span data-ka="დასრულებული" data-en="Complete">დასრულებული</span></span>
+                                    <span>12/<span data-ka="18 გაკვეთილი" data-en="18 Lessons">18 გაკვეთილი</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-course-card">
+                            <div class="course-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400" alt="Course">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h3>Python <span data-ka="პროგრამირება" data-en="Programming">პროგრამირება</span></h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%"></div>
+                                </div>
+                                <div class="progress-info">
+                                    <span>40% <span data-ka="დასრულებული" data-en="Complete">დასრულებული</span></span>
+                                    <span>8/<span data-ka="20 გაკვეთილი" data-en="20 Lessons">20 გაკვეთილი</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-course-card">
+                            <div class="course-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Course">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h3>UI/UX <span data-ka="დიზაინი" data-en="Design">დიზაინი</span></h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="progress-info">
+                                    <span>85% <span data-ka="დასრულებული" data-en="Complete">დასრულებული</span></span>
+                                    <span>17/<span data-ka="20 გაკვეთილი" data-en="20 Lessons">20 გაკვეთილი</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2><span data-ka="რეკომენდებული კურსები" data-en="Recommended Courses">რეკომენდებული კურსები</span></h2>
+                    </div>
+                    <div class="recommended-courses">
+                        <div class="mini-course-card">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300" alt="Course">
+                            <h4><span data-ka="მონაცემთა ბაზები" data-en="Database Management">მონაცემთა ბაზები</span></h4>
+                            <p>⭐ 4.8 (2.5k)</p>
+                            <span class="course-price">$11</span>
+                        </div>
+                        <div class="mini-course-card">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300" alt="Course">
+                            <h4><span data-ka="ციფრული მარკეტინგი" data-en="Digital Marketing">ციფრული მარკეტინგი</span></h4>
+                            <p>⭐ 4.9 (3.2k)</p>
+                            <span class="course-price">$12</span>
+                        </div>
+                        <div class="mini-course-card">
+                            <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300" alt="Course">
+                            <h4><span data-ka="მობილური აპები" data-en="Mobile Apps">მობილური აპები</span></h4>
+                            <p>⭐ 4.7 (1.8k)</p>
+                            <span class="course-price">$18</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>{{ current_user.username }}</h3>
+                    <p>{{ current_user.email }}</p>
+                    <div class="profile-level">
+                        <span class="level-badge"><span data-ka="დონე" data-en="Level">დონე</span> 5</span>
+                        <div class="level-progress">
+                            <div class="level-fill" style="width: 70%"></div>
+                        </div>
+                        <span class="level-text">70% <span data-ka="დონე 6-მდე" data-en="to Level 6">დონე 6-მდე</span></span>
+                    </div>
+                    <button class="btn-profile"><span data-ka="პროფილის რედაქტირება" data-en="Edit Profile">პროფილის რედაქტირება</span></button>
+                </div>
+
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <h3><span data-ka="სწავლის კალენდარი" data-en="Learning Calendar">სწავლის კალენდარი</span></h3>
+                    </div>
+                    <div class="calendar-streak">
+                        <div class="streak-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div>
+                            <span class="streak-number">7</span>
+                            <span class="streak-label"><span data-ka="დღე რიგად" data-en="Day Streak">დღე რიგად</span></span>
+                        </div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day active"><span data-ka="ორშ" data-en="Mon">ორშ</span></div>
+                        <div class="calendar-day active"><span data-ka="სამ" data-en="Tue">სამ</span></div>
+                        <div class="calendar-day active"><span data-ka="ოთხ" data-en="Wed">ოთხ</span></div>
+                        <div class="calendar-day active"><span data-ka="ხუთ" data-en="Thu">ხუთ</span></div>
+                        <div class="calendar-day active"><span data-ka="პარ" data-en="Fri">პარ</span></div>
+                        <div class="calendar-day active"><span data-ka="შაბ" data-en="Sat">შაბ</span></div>
+                        <div class="calendar-day active"><span data-ka="კვი" data-en="Sun">კვი</span></div>
+                    </div>
+                </div>
+
+                <div class="achievements-card">
+                    <h3><span data-ka="ბოლო მიღწევები" data-en="Recent Achievements">ბოლო მიღწევები</span></h3>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🏆</div>
+                        <div>
+                            <h4><span data-ka="პირველი კურსი" data-en="First Course">პირველი კურსი</span></h4>
+                            <p><span data-ka="დაასრულეთ პირველი კურსი" data-en="Complete your first course">დაასრულეთ პირველი კურსი</span></p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🔥</div>
+                        <div>
+                            <h4><span data-ka="7 დღიანი სერია" data-en="7 Day Streak">7 დღიანი სერია</span></h4>
+                            <p><span data-ka="ისწავლეთ 7 დღე რიგად" data-en="Learn for 7 days in a row">ისწავლეთ 7 დღე რიგად</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.dashboard-section {
+    padding: 120px 20px 60px;
+    min-height: 100vh;
+    background-color: var(--secondary-color);
+}
+
+.dashboard-header {
+    margin-bottom: 3rem;
+}
+
+.welcome-message h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-message p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.user-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-box {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+    border-color: var(--accent-color);
+}
+
+.stat-box i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    display: block;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+}
+
+.section-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.view-all {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.view-all:hover {
+    opacity: 0.8;
+}
+
+.progress-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.progress-course-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.progress-course-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.2);
+}
+
+.course-thumbnail {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.course-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.progress-course-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-overlay i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.course-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), #2c5aa0);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.recommended-courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.mini-course-card {
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mini-course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+}
+
+.mini-course-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.mini-course-card h4 {
+    color: var(--primary-color);
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1rem;
+}
+
+.mini-course-card p {
+    color: var(--text-color);
+    padding: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.course-price {
+    display: block;
+    padding: 0.5rem 1rem 1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.profile-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    font-size: 5rem;
+    color: var(--accent-color);
+}
+
+.profile-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile-card p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-level {
+    margin: 1.5rem 0;
+}
+
+.level-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), #2c5aa0);
+    color: var(--primary-color);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.level-progress {
+    width: 100%;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.level-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), #2c5aa0);
+}
+
+.level-text {
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.btn-profile {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.calendar-card,
+.achievements-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.calendar-header h3,
+.achievements-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.calendar-streak {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.streak-icon {
+    font-size: 2rem;
+    color: #ff6b35;
+}
+
+.streak-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.streak-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    padding: 0.8rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.calendar-day.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+.achievement-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.achievement-icon {
+    font-size: 2rem;
+}
+
+.achievement-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.achievement-item p {
+    color: var(--text-color);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-message h1 {
+        font-size: 1.8rem;
+    }
+
+    .user-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-course-card {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

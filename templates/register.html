@@ -1,0 +1,633 @@
+{% extends "base.html" %}
+
+{% block title %}<span data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</span> - საგანმანათლებლო პლატფორმა{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-wrapper">
+            <div class="auth-image">
+                <div class="auth-image-overlay">
+                    <h2><span data-ka="დაიწყეთ თქვენი მოგზაურობა!" data-en="Start Your Journey!">დაიწყეთ თქვენი მოგზაურობა!</span></h2>
+                    <p><span data-ka="შეუერთდით ათასობით სტუდენტს და დაიწყეთ სწავლა დღესვე" data-en="Join thousands of students and start learning today">შეუერთდით ათასობით სტუდენტს და დაიწყეთ სწავლა დღესვე</span></p>
+                    <div class="features-mini">
+                        <div class="feature-mini">
+                            <i class="fas fa-check-circle"></i>
+                            <span><span data-ka="500+ კურსი" data-en="500+ Courses">500+ კურსი</span></span>
+                        </div>
+                        <div class="feature-mini">
+                            <i class="fas fa-check-circle"></i>
+                            <span><span data-ka="უფასო ხელმისაწვდომობა" data-en="Free Access">უფასო ხელმისაწვდომობა</span></span>
+                        </div>
+                        <div class="feature-mini">
+                            <i class="fas fa-check-circle"></i>
+                            <span><span data-ka="სერთიფიკატები" data-en="Certificates">სერთიფიკატები</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="auth-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h1><span data-ka="რეგისტრაცია" data-en="Create Account">რეგისტრაცია</span></h1>
+                    <p><span data-ka="შექმენით თქვენი უფასო ანგარიში და დაიწყეთ სწავლა" data-en="Create your free account and start learning">შექმენით თქვენი უფასო ანგარიში და დაიწყეთ სწავლა</span></p>
+                </div>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                <i class="fas fa-{{ 'check-circle' if category == 'success' else 'exclamation-circle' }}"></i>
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form method="POST" action="{{ url_for('register') }}" class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i>
+                            <span data-ka="მომხმარებლის სახელი" data-en="Username">მომხმარებლის სახელი</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                            autofocus
+                            minlength="3"
+                            placeholder="შეიყვანეთ მომხმარებლის სახელი">
+                        <small class="form-hint"><span data-ka="მინიმუმ 3 სიმბოლო" data-en="Minimum 3 characters">მინიმუმ 3 სიმბოლო</span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            <span data-ka="ელ-ფოსტა" data-en="Email">ელ-ფოსტა</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            placeholder="example@mail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i>
+                            <span data-ka="პაროლი" data-en="Password">პაროლი</span>
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                                minlength="6"
+                                placeholder="შეიყვანეთ პაროლი"
+                                oninput="checkPasswordStrength()">
+                            <button type="button" class="toggle-password" onclick="togglePassword('password', 'password-icon')">
+                                <i class="fas fa-eye" id="password-icon"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_password">
+                            <i class="fas fa-lock"></i>
+                            <span data-ka="გაიმეორეთ პაროლი" data-en="Confirm Password">გაიმეორეთ პაროლი</span>
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input
+                                type="password"
+                                id="confirm_password"
+                                name="confirm_password"
+                                required
+                                placeholder="გაიმეორეთ პაროლი"
+                                oninput="checkPasswordMatch()">
+                            <button type="button" class="toggle-password" onclick="togglePassword('confirm_password', 'confirm-icon')">
+                                <i class="fas fa-eye" id="confirm-icon"></i>
+                            </button>
+                        </div>
+                        <small class="password-match" id="passwordMatch"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            <span data-ka="ვეთანხმები პირობებსა და დებულებებს" data-en="I agree to Terms and Conditions">ვეთანხმები პირობებსა და დებულებებს</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-auth-submit">
+                        <span data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>
+                        <span data-ka="უკვე გაქვთ ანგარიში?" data-en="Already have an account?">უკვე გაქვთ ანგარიში?</span>
+                        <a href="{{ url_for('login') }}">
+                            <span data-ka="შესვლა" data-en="Login">შესვლა</span>
+                        </a>
+                    </p>
+                </div>
+
+                <div class="auth-divider">
+                    <span><span data-ka="ან" data-en="OR">ან</span></span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        <span data-ka="Google-ით რეგისტრაცია" data-en="Sign up with Google">Google-ით რეგისტრაცია</span>
+                    </button>
+                    <button class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span data-ka="Facebook-ით რეგისტრაცია" data-en="Sign up with Facebook">Facebook-ით რეგისტრაცია</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 20px 60px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(42, 42, 42, 0.95)),
+                url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200') center/cover;
+}
+
+.auth-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+}
+
+.auth-card {
+    padding: 3rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.auth-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.auth-card::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+}
+
+.auth-card::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-color), #2c5aa0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+}
+
+.auth-header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: slideDown 0.3s ease;
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: #4caf50;
+}
+
+.alert-error {
+    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: #f44336;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.auth-form label i {
+    color: var(--accent-color);
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.form-hint {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: var(--accent-color);
+}
+
+.password-strength {
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--border-color);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.strength-text {
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.password-match {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.checkbox-container input {
+    cursor: pointer;
+}
+
+.btn-auth-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--accent-color), #2c5aa0);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-auth-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-color);
+}
+
+.auth-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.3rem;
+    transition: opacity 0.3s ease;
+}
+
+.auth-footer a:hover {
+    opacity: 0.8;
+}
+
+.auth-divider {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.auth-divider span {
+    position: relative;
+    background-color: var(--card-bg);
+    padding: 0 1rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.social-btn i {
+    font-size: 1.2rem;
+}
+
+.social-btn.google:hover {
+    border-color: #db4437;
+}
+
+.social-btn.facebook:hover {
+    border-color: #4267B2;
+}
+
+.auth-image {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(44, 90, 160, 0.9)),
+                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.auth-image-overlay {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.auth-image-overlay h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.auth-image-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.features-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.feature-mini {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.feature-mini i {
+    font-size: 1.5rem;
+    color: #4caf50;
+}
+
+.feature-mini span {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 968px) {
+    .auth-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-image {
+        display: none;
+    }
+
+    .auth-card {
+        padding: 2rem;
+    }
+}
+</style>
+
+<script>
+function togglePassword(inputId, iconId) {
+    const passwordInput = document.getElementById(inputId);
+    const passwordIcon = document.getElementById(iconId);
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordIcon.classList.remove('fa-eye');
+        passwordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        passwordIcon.classList.remove('fa-eye-slash');
+        passwordIcon.classList.add('fa-eye');
+    }
+}
+
+function checkPasswordStrength() {
+    const password = document.getElementById('password').value;
+    const strengthFill = document.getElementById('strengthFill');
+    const strengthText = document.getElementById('strengthText');
+
+    let strength = 0;
+    let text = '';
+    let color = '';
+
+    if (password.length >= 6) strength++;
+    if (password.length >= 10) strength++;
+    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+    switch(strength) {
+        case 0:
+        case 1:
+            text = 'სუსტი';
+            color = '#f44336';
+            strengthFill.style.width = '20%';
+            break;
+        case 2:
+            text = 'საშუალო';
+            color = '#ff9800';
+            strengthFill.style.width = '40%';
+            break;
+        case 3:
+            text = 'კარგი';
+            color = '#ffeb3b';
+            strengthFill.style.width = '60%';
+            break;
+        case 4:
+            text = 'ძლიერი';
+            color = '#8bc34a';
+            strengthFill.style.width = '80%';
+            break;
+        case 5:
+            text = 'ძალიან ძლიერი';
+            color = '#4caf50';
+            strengthFill.style.width = '100%';
+            break;
+    }
+
+    strengthFill.style.backgroundColor = color;
+    strengthText.textContent = text;
+    strengthText.style.color = color;
+}
+
+function checkPasswordMatch() {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+    const matchText = document.getElementById('passwordMatch');
+
+    if (confirmPassword === '') {
+        matchText.textContent = '';
+        return;
+    }
+
+    if (password === confirmPassword) {
+        matchText.textContent = '✓ პაროლები ემთხვევა';
+        matchText.style.color = '#4caf50';
+    } else {
+        matchText.textContent = '✗ პაროლები არ ემთხვევა';
+        matchText.style.color = '#f44336';
+    }
+}
+</script>
+{% endblock %}
